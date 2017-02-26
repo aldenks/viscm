@@ -1305,10 +1305,11 @@ class EditorWindow(QtWidgets.QMainWindow):
         self.fileQuit()
 
     def save(self):
-        fileName = QtWidgets.QFileDialog.getSaveFileName(caption="Save file",
+        fileNameInfo = QtWidgets.QFileDialog.getSaveFileName(caption="Save file",
                                                      directory=self.viscm_editor.name + ".jscm",
                                                      filter="JSCM Files (*.jscm)")
-        self.viscm_editor.save_colormap(fileName)
+        filepath = fileNameInfo[0]
+        self.viscm_editor.save_colormap(filepath)
 
     def loadviewer(self):
         newfig = plt.figure()
